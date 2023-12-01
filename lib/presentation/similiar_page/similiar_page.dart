@@ -1,0 +1,41 @@
+import '../similiar_page/widgets/similiar_item_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flix/core/app_export.dart';
+
+class SimiliarPage extends StatefulWidget {
+  const SimiliarPage({super.key});
+
+  @override
+  State<SimiliarPage> createState() => _SimiliarPageState();
+}
+
+class _SimiliarPageState extends State<SimiliarPage>
+    with AutomaticKeepAliveClientMixin<SimiliarPage> {
+  @override
+  bool get wantKeepAlive => true;
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return SafeArea(
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: SizedBox(
+                width: double.maxFinite,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                          height: getVerticalSize(181),
+                          child: ListView.separated(
+                              padding: getPadding(left: 9, top: 27, right: 10),
+                              scrollDirection: Axis.horizontal,
+                              separatorBuilder: (context, index) {
+                                return SizedBox(height: getVerticalSize(12));
+                              },
+                              itemCount: 3,
+                              itemBuilder: (context, index) {
+                                return const SimiliarItemWidget();
+                              }))
+                    ]))));
+  }
+}
