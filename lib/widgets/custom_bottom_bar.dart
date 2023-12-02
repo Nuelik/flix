@@ -21,7 +21,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
 
   List<BottomMenuModel> bottomMenuList = [
     BottomMenuModel(
-      icon: ImageConstant.imgTrash,
+      icon: ImageConstant.imgSearchGray400,
       title: "Home",
       type: BottomBarEnum.home,
     ),
