@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flix/core/utils/color_constant.dart';
-import 'package:flix/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -91,7 +90,7 @@ class CustomButton extends StatelessWidget {
     return TextButton.styleFrom(
       fixedSize: Size(
         width ?? double.maxFinite,
-        height ?? getVerticalSize(40),
+        height ?? (40),
       ),
       padding: _setPadding(),
       backgroundColor: _setColor(),
@@ -105,19 +104,15 @@ class CustomButton extends StatelessWidget {
   _setPadding() {
     switch (padding) {
       case ButtonPadding.paddingT5:
-        return getPadding(
+        return const EdgeInsets.only(
           top: 9,
           right: 9,
           bottom: 9,
         );
       case ButtonPadding.paddingAll8:
-        return getPadding(
-          all: 6,
-        );
+        return const EdgeInsets.all(6);
       default:
-        return getPadding(
-          all: 13,
-        );
+        return const EdgeInsets.all(13);
     }
   }
 
@@ -148,23 +143,17 @@ class CustomButton extends StatelessWidget {
     switch (shape) {
       case ButtonShape.circleBorder20:
         return BorderRadius.circular(
-          getHorizontalSize(
-            20.00,
-          ),
+          (20.00),
         );
       case ButtonShape.circleBorder15:
         return BorderRadius.circular(
-          getHorizontalSize(
-            15.00,
-          ),
+          (15.00),
         );
       case ButtonShape.square:
         return BorderRadius.circular(0);
       default:
         return BorderRadius.circular(
-          getHorizontalSize(
-            25.00,
-          ),
+          (25.00),
         );
     }
   }
@@ -174,62 +163,42 @@ class CustomButton extends StatelessWidget {
       case ButtonFontStyle.poppinsMedium16WhiteA700:
         return TextStyle(
           color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            16,
-          ),
+          fontSize: (16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w500,
-          height: getVerticalSize(
-            1.50,
-          ),
+          height: (1.50),
         );
       case ButtonFontStyle.poppinsRegular14WhiteA700:
         return TextStyle(
           color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            14,
-          ),
+          fontSize: (14),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
-          height: getVerticalSize(
-            1.50,
-          ),
+          height: (1.50),
         );
       case ButtonFontStyle.poppinsRegular12:
         return TextStyle(
           color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            12,
-          ),
+          fontSize: (12),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
-          height: getVerticalSize(
-            1.50,
-          ),
+          height: (1.50),
         );
       case ButtonFontStyle.poppinsRegular16Red700_1:
         return TextStyle(
           color: ColorConstant.red700,
-          fontSize: getFontSize(
-            16,
-          ),
+          fontSize: (16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
-          height: getVerticalSize(
-            1.50,
-          ),
+          height: (1.50),
         );
       default:
         return TextStyle(
           color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            16,
-          ),
+          fontSize: (16),
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w400,
-          height: getVerticalSize(
-            1.50,
-          ),
+          height: (1.50),
         );
     }
   }

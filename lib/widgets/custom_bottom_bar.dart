@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flix/core/utils/color_constant.dart';
 import 'package:flix/core/utils/image_constant.dart';
-import 'package:flix/core/utils/size_utils.dart';
 import 'package:flix/theme/app_style.dart';
 import 'package:flix/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
@@ -70,11 +69,11 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               children: [
                 CustomImageView(
                   svgPath: bottomMenuList[index].icon,
-                  height: getSize(
-                    24,
+                  height:  (
+                    24
                   ),
-                  width: getSize(
-                    24,
+                  width:  (
+                    24
                   ),
                   color: ColorConstant.gray400,
                 ),
@@ -95,16 +94,16 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               children: [
                 CustomImageView(
                   svgPath: bottomMenuList[index].icon,
-                  height: getSize(
-                    24,
+                  height:  (
+                    24
                   ),
-                  width: getSize(
-                    24,
+                  width:  (
+                    24
                   ),
                   color: ColorConstant.whiteA700,
                 ),
                 Padding(
-                  padding: getPadding(
+                  padding: const EdgeInsets.only(
                     top: 1,
                   ),
                   child: Text(

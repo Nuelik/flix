@@ -1,5 +1,4 @@
 import 'package:flix/core/utils/color_constant.dart';
-import 'package:flix/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 
 class AppDecoration {
@@ -16,9 +15,7 @@ class AppDecoration {
         color: ColorConstant.gray900,
         border: Border.all(
           color: ColorConstant.whiteA700Cc,
-          width: getHorizontalSize(
-            1,
-          ),
+          width: (1),
         ),
       );
   static BoxDecoration get fillWhiteA700 => BoxDecoration(
@@ -34,9 +31,7 @@ class AppDecoration {
         color: ColorConstant.whiteA700,
         border: Border.all(
           color: ColorConstant.whiteA700,
-          width: getHorizontalSize(
-            4,
-          ),
+          width: (4),
         ),
       );
   static BoxDecoration get fillGray90090 => BoxDecoration(
@@ -85,110 +80,76 @@ class AppDecoration {
 }
 
 class BorderRadiusStyle {
-  static BorderRadius customBorderTL20 = BorderRadius.only(
+  static BorderRadius customBorderTL20 = const BorderRadius.only(
     topLeft: Radius.circular(
-      getHorizontalSize(
-        20,
-      ),
+      (20),
     ),
     bottomLeft: Radius.circular(
-      getHorizontalSize(
-        20,
-      ),
+      (20),
     ),
   );
 
-  static BorderRadius customBorderBL12 = BorderRadius.only(
+  static BorderRadius customBorderBL12 = const BorderRadius.only(
     bottomLeft: Radius.circular(
-      getHorizontalSize(
-        12,
-      ),
+      (12),
     ),
     bottomRight: Radius.circular(
-      getHorizontalSize(
-        12,
-      ),
+      (12),
     ),
   );
 
-  static BorderRadius customBorderTL10 = BorderRadius.only(
+  static BorderRadius customBorderTL10 = const BorderRadius.only(
     topLeft: Radius.circular(
-      getHorizontalSize(
-        10,
-      ),
+      (10),
     ),
     topRight: Radius.circular(
-      getHorizontalSize(
-        10,
-      ),
+      (10),
     ),
   );
 
-  static BorderRadius customBorderTL18 = BorderRadius.only(
+  static BorderRadius customBorderTL18 = const BorderRadius.only(
     topLeft: Radius.circular(
-      getHorizontalSize(
-        18,
-      ),
+      (18),
     ),
     topRight: Radius.circular(
-      getHorizontalSize(
-        18,
-      ),
+      (18),
     ),
   );
 
   static BorderRadius circleBorder45 = BorderRadius.circular(
-    getHorizontalSize(
-      45,
-    ),
+    (45),
   );
 
   static BorderRadius circleBorder25 = BorderRadius.circular(
-    getHorizontalSize(
-      25,
-    ),
+    (25),
   );
 
   static BorderRadius roundedBorder15 = BorderRadius.circular(
-    getHorizontalSize(
-      15,
-    ),
+    (15),
   );
 
   static BorderRadius roundedBorder10 = BorderRadius.circular(
-    getHorizontalSize(
-      10,
-    ),
+    (10),
   );
 
   static BorderRadius circleBorder42 = BorderRadius.circular(
-    getHorizontalSize(
-      42,
-    ),
+    (42),
   );
 
   static BorderRadius roundedBorder1 = BorderRadius.circular(
-    getHorizontalSize(
-      1,
-    ),
+    (1),
   );
 
   static BorderRadius roundedBorder30 = BorderRadius.circular(
-    getHorizontalSize(
-      30,
-    ),
+    (30),
   );
 
   static BorderRadius roundedBorder20 = BorderRadius.circular(
-    getHorizontalSize(
-      20,
-    ),
+    (20),
   );
 
   static BorderRadius txtCircleBorder14 = BorderRadius.circular(
-    getHorizontalSize(
-      14,
-    ),
+    (14),
   );
 }
 
@@ -202,11 +163,4 @@ double get strokeAlignCenter => BorderSide.strokeAlignCenter;
 
 double get strokeAlignOutside => BorderSide.strokeAlignOutside;
 
-// For Flutter SDK Version 3.7.1 or less.
-
-// StrokeAlign get strokeAlignInside => StrokeAlign.inside;
-//
-// StrokeAlign get strokeAlignCenter => StrokeAlign.center;
-//
-// StrokeAlign get strokeAlignOutside => StrokeAlign.outside;
     
