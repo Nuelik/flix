@@ -13,12 +13,39 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
+  int btnIndex = 0;
+
+  List<String> btnCategories = [
+    "Trending",
+    "TVShow",
+    "Movie",
+    "Music",
+    "Education",
+  ];
+
   List<String> movieImages = [
     ImageConstant.imgImage6297x3751,
     ImageConstant.imgImage6297x3751,
     ImageConstant.imgImage6297x3751,
     ImageConstant.imgImage6297x3751,
     ImageConstant.imgImage6297x3751,
+  ];
+
+  List<String> movieCover = [
+    "assets/images/img_image1_154x108.png",
+    "assets/images/img_image1_178x124_1.png",
+    "assets/images/img_image1_178x124_2.png",
+    "assets/images/img_image3_154x116.png",
+    "assets/images/img_image4_178x124_1.png",
+    "assets/images/img_image4_178x124_2.png",
+  ];
+  List<String> movieTitles = [
+    "Beauty and the beast",
+    "Spiderman 3",
+    "Iron Man 3",
+    "Limp Life",
+    "Joker",
+    "Wonder Woman",
   ];
   @override
   Widget build(BuildContext context) {
@@ -77,34 +104,138 @@ class _HomePageState extends State<HomePage> {
               activeIndex: selectedIndex,
               count: movieImages.length,
               effect: ExpandingDotsEffect(
-                offset: 10,
-                dotHeight: 10,
-                dotWidth: 10,
-                dotColor:  ColorConstant.gray900,
+                  offset: 10,
+                  dotHeight: 10,
+                  dotWidth: 10,
+                  dotColor: Colors.white.withOpacity(0.5),
                   activeDotColor: Theme.of(context).primaryColor),
             ),
           ),
           const SizedBox(height: 20),
 
           //categories
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
-            child:  Column(
+            child: Text(
+              "Categories",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Colors.white.withOpacity(0.8),
+              ),
+            ),
+          ),
+          const SizedBox(height: 15),
+
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              const SizedBox(width: 18),
+              ...List.generate(
+                  btnCategories.length,
+                  (index) => InkWell(
+                        onTap: () {
+                          setState(() {
+                            btnIndex = index;
+                          });
+                        },
+                        child: Container(
+                            margin: const EdgeInsets.only(right: 8),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 14, vertical: 6),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: btnIndex != index
+                                  ? Colors.white.withOpacity(0.3)
+                                  : Theme.of(context).primaryColor,
+                            ),
+                            child: Text(btnCategories[index],
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white.withOpacity(0.8)))),
+                      )),
+            ]),
+          ),
+
+          //top picks
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Categories",
+                  btnCategories[btnIndex],
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                    color: Colors.white.withOpacity(0.8),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Center(
+                  child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.start,
+                    spacing: MediaQuery.of(context).size.width >= 450
+                        ? MediaQuery.of(context).size.width * 0.065
+                        : 19,
+                    runSpacing: 15,
+                    children: List.generate(
+                        movieCover.length,
+                        (index) => InkWell(
+                              onTap: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: ((context) => const BookPages()),
+                                //   ),
+                                // );
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(5),
+                                    child: Image.asset(
+                                      movieCover[index],
+                                      fit: BoxFit.cover,
+                                      width: 80,
+                                      height:
+                                          MediaQuery.of(context).size.width >=
+                                                  450
+                                              ? 110
+                                              : 150,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  SizedBox(
+                                    width: 80,
+                                    child: Text(
+                                      movieTitles[index],
+                                      style: TextStyle(
+                                          color: Colors.white.withOpacity(0.8),
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width >=
+                                                  450
+                                              ? 12
+                                              : 10,
+                                          fontWeight: FontWeight.w600),
+                                      overflow: TextOverflow.clip,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                ],
+                              ),
+                            )),
                   ),
                 ),
               ],
             ),
-          )
-
-          //top picks
+          ),
         ],
       ),
     );
